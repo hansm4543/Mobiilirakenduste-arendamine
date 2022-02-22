@@ -1,7 +1,14 @@
 # Mobiilirakenduste-arendamine
 
 # Project Name: 
-### Autorid: Hans-Märten Liiu, Markus Veem, Markus Tammeoja, Anastasija Selevjorstova ja Jan-Erik Läänesaar
+### Autorid:
+<ul>
+  <li>Hans-Märten Liiu</li>
+  <li>Markus Veem</li>
+  <li>Markus Tammeoja</li>
+  <li>Anastasija Selevjorstova</li>
+  <li>Jan-Erik Läänesaar</li>
+</ul>
 </br>
 
 
