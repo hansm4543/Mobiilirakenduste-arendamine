@@ -12,7 +12,7 @@
 <p>Tegime Hello World rakenduse, millel asendasime Hello Worldi teksti ning lisasime juurde  nupu.</p>
 
 <p>Kerge oli:</p>
-  <li>Nuppude ja tekstiväljade paigutamine.</li>
+  <li>Nuppude ja tekstiväljade lisamine ning nende muutmine.</li>
 </ul>
 <p>Raske oli:</p>
 <ul>
