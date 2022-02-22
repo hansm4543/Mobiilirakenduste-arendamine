@@ -1,3 +1,2 @@
-## Rakenduse kuvatõmmised
-* Esimene modifikatsioon
+## Esimene modifikatsioon
 ![Source code](first.png)
