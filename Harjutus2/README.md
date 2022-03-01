@@ -195,7 +195,12 @@ fun main() {
 
 ## Kotlin Standard Library võimalused
 
-Kotlin stdlib annab paremaid võimalusi igapäevaste tegevusteks ning lisaks annab juurde teisi lisafunktsioone (threadid ja faililugemine)
+Kotlin stdlib annab paremaid võimalusi igapäevaste tegevusteks ning lisaks annab juurde teisi lisafunktsioone. Nad sisaldavad:
+
+· Kõrgemat järku funktsioonid, mis rakendavad idiomaatilisi mustreid (lubamine, rakendamine, kasutamine, sünkroonimine jne ((let, apply, use, synchronized)).
+· Laiendusfunktsioonid, mis pakuvad toiminguid päringute tegemiseks kogumitest (eager) ja jadadest (lazy).
+· Erinevad utiliidid stringide ja char jadadega töötamiseks.
+· JDK klasside laiendused, mis muudavad failide, IO ja lõimedega töötamise mugavaks. (threadid ja faililugemine)
 
 Nad on jaotatud eraldi moodulitena
 
