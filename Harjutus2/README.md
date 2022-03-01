@@ -1,7 +1,7 @@
 Kotlin on JVM-il põhinev keel ning Google'i poolt defakto Androidi arenduskeel, kuid on kasutuses ka teistes valdkondades, kus on näiteks asendatud Java või Scalaga (nt veebi backendid)
 
 Võrreldes Javaga, on Kotlin:
-- Verboossem
+- Vähe verboossem
 - Funktsionaalsem
 - Vähendatud boilerplate'iga (eg ei ole vaja getterid/setterid ega Lomboki)
 - Ühildub Javaga (Nt saab importida Java koodi Kotlini omasse)
