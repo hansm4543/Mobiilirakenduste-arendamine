@@ -199,4 +199,23 @@ Kotlin stdlib annab paremaid võimalusi igapäevaste tegevusteks ning lisaks ann
 
 Nad on jaotatud eraldi moodulitena
 
-### package kotlin.browser
+### package kotlinx.browser
+
+- Annab võimaluse kirjutada JS koodi Kotlinis
+- Kood kompileeritav JavaScripti
+
+```kotlin
+val document: Document
+```
+
+```kotlin
+val localStorage: Storage
+```
+
+```kotlin
+val localStorage: Storage
+```
+
+```kotlin
+val window: Window
+```
