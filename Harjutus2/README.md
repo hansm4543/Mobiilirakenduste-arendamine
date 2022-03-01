@@ -199,6 +199,18 @@ Kotlin stdlib annab paremaid võimalusi igapäevaste tegevusteks ning lisaks ann
 
 Nad on jaotatud eraldi moodulitena
 
+### package kotlin
+
+- Sisaldab tüüpe, nt `Any`, `Array`, `Boolean`, `Char`, `Double` jne
+- Abifunktsioonid, nt 
+  - `emptyArray` 
+  - `getOrThrow` 
+  - `getOrElse`
+  - `map`
+  - `suspend`
+
+Rohkem Kotlin core stdlib kohta [siin](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/)
+
 ### package kotlinx.browser
 
 - Annab võimaluse kirjutada JS koodi Kotlinis
