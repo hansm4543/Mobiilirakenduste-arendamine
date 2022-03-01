@@ -76,6 +76,8 @@ val number = -50
 val result = if (number > 0) "Positive number" else "Negative number"
 return result
 
+// Mõlemas nii Javas kui ka Kotlinis saab kasutada tenary operatorit
+// result = (number > 0) ? "Positive number" : "Negative number"
 ```
 ### Tsüklid
 ```java
