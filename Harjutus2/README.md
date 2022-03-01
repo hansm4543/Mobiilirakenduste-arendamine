@@ -231,3 +231,42 @@ val localStorage: Storage
 ```kotlin
 val window: Window
 ```
+
+### package kotlinx.dom
+
+DOM-manipuleerimise funktsioonid ja komponendid
+
+```kotlin
+val Node.isElement: Boolean
+
+```
+```kotlin
+val Node.isText: Boolean
+```
+```kotlin
+fun Element.addClass(vararg cssClasses: String): Boolean
+```
+```kotlin
+fun Element.appendElement(
+    name: String,
+    init: Element.() -> Unit
+): Element
+```
+```kotlin
+fun Element.appendText(text: String): Element
+```
+```kotlin
+fun Node.clear()
+```
+```kotlin
+fun Document.createElement(
+    name: String,
+    init: Element.() -> Unit
+): Element
+```
+```kotlin
+fun Element.hasClass(cssClass: String): Boolean
+```
+```kotlin
+fun Element.removeClass(vararg cssClasses: String): Boolean
+```
