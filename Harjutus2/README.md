@@ -60,6 +60,22 @@ if (20 > 18) {
   print("20 is greater than 18")
 }
 
+// Kotlinis saab tingimuse omistada ka muutujale
+
+val number = -50
+
+val result = if (number > 0) {
+    "Positive number"
+} else {
+    "Negative number"
+}
+return result
+
+// Lühendatud vormis sama koodijupp
+val number = -50
+val result = if (number > 0) "Positive number" else "Negative number"
+return result
+
 ```
 ### Tsüklid
 ```java
