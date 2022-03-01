@@ -131,39 +131,35 @@ while (x > 0) {
 
 ### Funktsioonid
 ```kotlin
-//Kotlin
 
-fun main() {
-    // Who sent the most messages?
-    val frequentSender = messages
-        .groupBy(Message::sender)
-        .maxByOrNull { (_, messages) -> messages.size }
-        ?.key                                                 // Get their names
-    println(frequentSender) // [Ma]
-
-    // Who are the senders?
-    val senders = messages
-        .asSequence()                                         // Make operations lazy (for a long call chain)
-        .filter { it.body.isNotBlank() && !it.isRead }        // Use lambdas...
-        .map(Message::sender)                                 // ...or member references
-        .distinct()
-        .sorted()
-        .toList()                                             // Convert sequence back to a list to get a result
-    println(senders) // [Adam, Ma]
+fun sum(a: Int, b: Int): Int {
+    return a + b
 }
 
-data class Message(                                          // Create a data class
-    val sender: String,
-    val body: String,
-    val isRead: Boolean = false,                              // Provide a default value for the argument
-)
+fun main() {
+    print("sum of 3 and 5 is ")
+    println(sum(3, 5))
+}
 
-val messages = listOf(                                       // Create a list
-    Message("Ma", "Hey! Where are you?"),
-    Message("Adam", "Everything going according to plan today?"),
-    Message("Ma", "Please reply. I've lost you!"),
-)
+
 ```
+### Funktsioonid Java
+```java
+//Java
+ 
+  public static void main(String[] args) {
+        System.out.println(myMath(3, 5));
+        
+  }
+    
+    static int myMath(int a, int b){
+    
+         return a +b;
+        
+}
+
+```
+
 ### Klassid
 
 ```kotlin
@@ -269,7 +265,12 @@ val l = b!!.length
 
 ## Kotlin Standard Library võimalused
 
-Kotlin stdlib annab paremaid võimalusi igapäevaste tegevusteks ning lisaks annab juurde teisi lisafunktsioone (threadid ja faililugemine)
+Kotlin stdlib annab paremaid võimalusi igapäevaste tegevusteks ning lisaks annab juurde teisi lisafunktsioone. Nad sisaldavad:
+
+· Kõrgemat järku funktsioonid, mis rakendavad idiomaatilisi mustreid (lubamine, rakendamine, kasutamine, sünkroonimine jne ((let, apply, use, synchronized)).
+· Laiendusfunktsioonid, mis pakuvad toiminguid päringute tegemiseks kogumitest (eager) ja jadadest (lazy).
+· Erinevad utiliidid stringide ja char jadadega töötamiseks.
+· JDK klasside laiendused, mis muudavad failide, IO ja lõimedega töötamise mugavaks. (threadid ja faililugemine)
 
 Nad on jaotatud eraldi moodulitena
 
