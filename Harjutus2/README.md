@@ -132,6 +132,8 @@ while (x > 0) {
 ### Funktsioonid
 
 ### Klassid
+
+```kotlin
 //Kotlin
 abstract class Person(val name: String) {
     abstract fun greet()
@@ -155,5 +157,6 @@ fun main() {
     sam.eat() // An implementation of an interface function
     sam.pay(10) // A default implementation in an interface
 }
+```
 
 ### Kotlin Standard Library võimalused
