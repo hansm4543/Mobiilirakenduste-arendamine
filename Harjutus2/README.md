@@ -189,88 +189,14 @@ fun main() {
 }
 ```
 
-## Null safety
-
-Kotlini tüübisüsteem oli ülesehitatud nii, et vältida NullPointerExceptionit
-
-Ainuke viis, kuidas NullPointerExceptionit on võimalik Kotlinis saada, on..
-- ```throw NullPointerException```
-- ```!!``` kasutamine
-- Andmete ebaühtlus (nt initialiseerimata ```this```)
-
-### Nullable tüübid
-
-Kotlinis, tavaline muutuja ei lase väärtuse omistada ```null```-iks
-```kotlin
-var a: String = "abc" // Regular initialization means non-null by default
-a = null // compilation error
-```
-
-Kui on soov nulli lubada, siis peab lisama ```?``` märki tüübi lõpu
-```kotlin
-var b: String? = "abc" // can be set to null
-b = null // ok
-print(b)
-```
-
-Nüüd kui kutsud välja muutuja funktsiooni ```a```, siis ta ei viska NullPointerExceptionit
-```kotlin
-val l = a.length
-```
-
-Kui aga kutsud välja ```b```, siis tegu pole enam 'safe' tüübiga ning kompilaator viskab viga
-```kotlin
-val l = b.length // error: variable 'b' can be null
-```
-
-### Null kontrollimine
-
-```kotlin
-val l = if (b != null) b.length else -1
-```
-
-
-Keerulisem variant:
-```kotlin
-val b: String? = "Kotlin"
-if (b != null && b.length > 0) {
-    print("String of length ${b.length}")
-} else {
-    print("Empty string")
-}
-```
-
-
-### Turvalised väljakutsed (Safe calls)
-
-Null kontrollimise asemel saab välja kutsuda muutuja või selle funktsiooni kasutades `?`
-
-```kotlin
-val a = "Kotlin"
-val b: String? = null
-println(b?.length)
-println(a?.length) // Unnecessary safe call
-```
-
-Seega saab kirjutada ka nii:
-```kotlin
-bob?.department?.head?.name
-```
-
-### !! operator
-!! muudab tüübi non-null tüübiks ning viskab exceptioni, kui väärtus on `null`\
-```kotlin
-val l = b!!.length
-```
-
 ## Kotlin Standard Library võimalused
 
 Kotlin stdlib annab paremaid võimalusi igapäevaste tegevusteks ning lisaks annab juurde teisi lisafunktsioone. Nad sisaldavad:
 
-· Kõrgemat järku funktsioonid, mis rakendavad idiomaatilisi mustreid (lubamine, rakendamine, kasutamine, sünkroonimine jne ((let, apply, use, synchronized)).
-· Laiendusfunktsioonid, mis pakuvad toiminguid päringute tegemiseks kogumitest (eager) ja jadadest (lazy).
-· Erinevad utiliidid stringide ja char jadadega töötamiseks.
-· JDK klasside laiendused, mis muudavad failide, IO ja lõimedega töötamise mugavaks. (threadid ja faililugemine)
+- Kõrgemat järku funktsioonid, mis rakendavad idiomaatilisi mustreid (lubamine, rakendamine, kasutamine, sünkroonimine jne ((let, apply, use, synchronized)).
+- Laiendusfunktsioonid, mis pakuvad toiminguid päringute tegemiseks kogumitest (eager) ja jadadest (lazy).
+- Erinevad utiliidid stringide ja char jadadega töötamiseks.
+- JDK klasside laiendused, mis muudavad failide, IO ja lõimedega töötamise mugavaks. (threadid ja faililugemine)
 
 Nad on jaotatud eraldi moodulitena
 
