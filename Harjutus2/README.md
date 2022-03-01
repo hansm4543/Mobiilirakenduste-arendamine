@@ -61,6 +61,55 @@ if (20 > 18) {
 }
 
 ```
+### Tsüklid
+```java
+// Java
+for (int i = 1; i < 3; i++) {
+  System.println.out(i);
+}
+
+// Listid
+for (int i = 0; i < arr.length; i++) {
+    System.out.println("Element: " + arr[i]);
+}
+
+for (int i: arr) { // lühendatud
+    System.out.println("Element: " + arr[i]);
+}
+
+// while
+while (x > 0) {
+    x--
+}
+```
+
+```kotlin
+// Kotlin
+
+for (int i = 1; i < 3; i++) {
+  println(i);
+}
+
+for (i in 1..3) {
+    println(i)
+}
+
+// Listid
+for (item in collection) print(item)
+
+for (item: Int in ints) {
+    // ...
+}
+
+for ((index, value) in array.withIndex()) {
+    println("the element at $index is $value")
+}
+
+// while
+while (x > 0) {
+    x--
+}
+```
 
 ### Funktsioonid
 
