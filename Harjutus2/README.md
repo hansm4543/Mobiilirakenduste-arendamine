@@ -1,10 +1,10 @@
 Kotlin on JVM-il põhinev keel ning Google'i poolt defakto Androidi arenduskeel, kuid on kasutuses ka teistes valdkondades, kus on näiteks asendatud Java või Scalaga (nt veebi backendid)
 
 Võrreldes Javaga, on Kotlin:
-- Vähe verboossem
+- Vähem verboossust
 - Funktsionaalsem
 - Vähendatud boilerplate'iga (eg ei ole vaja getterid/setterid ega Lomboki)
-- Ühildub Javaga (Nt saab importida Java koodi Kotlini omasse)
+- Ühildub Javaga (Saab importida Java koodi otse Kotlinisse)
 - Kompileeritav JavaScriptisse
 
 Sarnased keeled:
@@ -28,7 +28,7 @@ final double PI = 3.141592653589793; // konstantne
 ```kotlin
 // Kotlin
 
-// automaatsete tüüpidega
+// Automaatsete tüüpidega
 var myNum = 5
 var myDouble = 5.99
 var myChar = 'D'
@@ -36,7 +36,7 @@ var myBool = true
 var myText = "Hello"
 val PI = 3.141592653589793 // konstantne
 
-// tüüpidega
+// Tüüpidega
 var myNum = 5: Int
 var myFloat = 5.99: Double
 var myChar = 'D': Char
@@ -76,7 +76,7 @@ val number = -50
 val result = if (number > 0) "Positive number" else "Negative number"
 return result
 
-// Mõlemas nii Javas kui ka Kotlinis saab kasutada tenary operatorit
+// Nii Javas kui ka Kotlinis saab kasutada tenary operatorit
 // result = (number > 0) ? "Positive number" : "Negative number"
 ```
 ### Tsüklid
@@ -191,7 +191,7 @@ fun main() {
 
 ## Null safety
 
-Kotlini tüübisüsteem oli ülesehitatud nii, et vältida NullPointerExceptionit
+Kotlini tüübisüsteem on ülesehitatud selliselt, et saaks vältida NullPointerExceptionit
 
 Ainuke viis, kuidas NullPointerExceptionit on võimalik Kotlinis saada, on..
 - ```throw NullPointerException```
@@ -206,19 +206,19 @@ var a: String = "abc" // Regular initialization means non-null by default
 a = null // compilation error
 ```
 
-Kui on soov nulli lubada, siis peab lisama ```?``` märki tüübi lõpu
+Kui on soov nulli lubada, siis peab lisama ```?``` märki tüübi lõppu
 ```kotlin
 var b: String? = "abc" // can be set to null
 b = null // ok
 print(b)
 ```
 
-Nüüd kui kutsud välja muutuja funktsiooni ```a```, siis ta ei viska NullPointerExceptionit
+Kui kutsuda välja muutuja funktsiooni ```a```, siis ta ei viska NullPointerExceptionit
 ```kotlin
 val l = a.length
 ```
 
-Kui aga kutsud välja ```b```, siis tegu pole enam 'safe' tüübiga ning kompilaator viskab viga
+Kui aga kutsuda välja ```b```, siis tegu pole enam 'safe' tüübiga ning kompilaator viskab vea
 ```kotlin
 val l = b.length // error: variable 'b' can be null
 ```
@@ -257,7 +257,7 @@ bob?.department?.head?.name
 ```
 
 ### !! operator
-!! muudab tüübi non-null tüübiks ning viskab exceptioni, kui väärtus on `null`\
+!! Muudab tüübi non-null tüübiks ning viskab exceptioni, kui väärtus on `null`\
 ```kotlin
 val l = b!!.length
 ```
@@ -266,9 +266,9 @@ val l = b!!.length
 
 Kotlin stdlib annab paremaid võimalusi igapäevaste tegevusteks ning lisaks annab juurde teisi lisafunktsioone. Nad sisaldavad:
 
-- Kõrgemat järku funktsioonid, mis rakendavad idiomaatilisi mustreid (lubamine, rakendamine, kasutamine, sünkroonimine jne ((let, apply, use, synchronized)).
+- Kõrgemat järku funktsioonid, mis rakendavad idiomaatilisi mustreid (lubamine, rakendamine, kasutamine, sünkroonimine jne ((let, apply, use, synchronized))
 - Laiendusfunktsioonid, mis pakuvad toiminguid päringute tegemiseks kogumitest (eager) ja jadadest (lazy).
-- Erinevad utiliidid stringide ja char jadadega töötamiseks.
+- Erinevad utiliidid stringide ja char jadadega töötamiseks
 - JDK klasside laiendused, mis muudavad failide, IO ja lõimedega töötamise mugavaks. (threadid ja faililugemine)
 
 Nad on jaotatud eraldi moodulitena
