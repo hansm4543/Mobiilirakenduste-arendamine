@@ -159,4 +159,10 @@ fun main() {
 }
 ```
 
-### Kotlin Standard Library võimalused
+## Kotlin Standard Library võimalused
+
+Kotlin stdlib annab paremaid võimalusi igapäevaste tegevusteks ning lisaks annab juurde teisi lisafunktsioone (threadid ja faililugemine)
+
+Nad on jaotatud eraldi moodulitena
+
+### package kotlin.browser
