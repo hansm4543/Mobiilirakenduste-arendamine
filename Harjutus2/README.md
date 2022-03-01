@@ -270,3 +270,15 @@ fun Element.hasClass(cssClass: String): Boolean
 ```kotlin
 fun Element.removeClass(vararg cssClasses: String): Boolean
 ```
+
+### ...ja teised
+- kotlin.collections
+- kotlin.annotation
+- kotlin.comparisons
+- kotlin.concurrent
+- kotlin.coroutines
+- kotlin.io
+- kotlin.math
+- ...
+
+Terviklik nimekiri stdlib moodulitest [siin](https://kotlinlang.org/api/latest/jvm/stdlib/)
