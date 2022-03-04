@@ -189,6 +189,48 @@ fun main() {
 }
 ```
 
+## klassid java
+```java
+//java
+
+ public class main{
+    public static void main(String[] args) {
+        
+        RestaurantCustomer sam = new RestaurantCustomer();
+        sam.greet("Mario"); 
+        sam.order("kartuliPuder"); 
+        sam.eat("kartuliPuder");
+        sam.pay(10);   
+    }
+}
+public class RestaurantCustomer implements FoodConsumer{
+    String name;
+    String dish;
+    
+    public void greet(String name){
+        System.out.println("its a me " + name);
+    }
+    public void order(String dish){
+        System.out.println(dish + " please");
+
+    }
+    public void eat(String dish){
+        System.out.println("eats " + dish);
+
+    }    
+}
+public abstract class Person {
+    abstract void greet();
+ }
+
+ public interface FoodConsumer {
+    default void pay(int amount){
+        System.out.println("Delicious! Here's" +amount+"bucks!");
+    }
+}
+
+```
+
 ## Null safety
 
 Kotlini tüübisüsteem on ülesehitatud selliselt, et saaks vältida NullPointerExceptionit
