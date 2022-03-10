@@ -1,0 +1,3 @@
+[submodule "Harjutus3/android"]
+	path = Harjutus3/android
+	url = https://github.com/Uptaker/android.git
