@@ -9,15 +9,12 @@ Harjutusel osalesid
 
 Androidis on aknad nö `Activity`-d. Uue akna avamiseks on vaja kutsuda välja `Intent`.
 
-Info liikumine activitite vahel töötab kasutades `putExtra("key", value)` funktsiooniga uue Intenti alustamisel ning järgmisel aknal saad kätte nii:
-
-``
+Info liikumine activitite vahel töötab kasutades `putExtra("key", value)` funktsiooniga uue Intenti alustamisel ning järgmisel aknal saab kätte teises aknas läbi `getStringExtra()`, `getIntExtra` (vastavalt tüübile)
 
 Veidi sarnane JS komponentide propsidega.
 
 ### Mis oli raske
 - Aknade navigeerimine on võõra süsteemiga/meetodiga
-- 
 
 ### Mis oli kerge
 - Uue akna loomine
