@@ -18,3 +18,5 @@ Veidi sarnane JS komponentide propsidega.
 
 ### Mis oli kerge
 - Uue akna loomine
+
+![gif](preview.gif)
