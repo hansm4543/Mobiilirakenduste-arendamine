@@ -1,6 +1,3 @@
-# Kaamerad, mikrofonid ja sensorid
+### What is this?
 
-## Accelerator
-
-![irl](./accel_emulator.gif)
-![irl](./accel_irl.gif)
+This repository holds various tests & prototypes with Kotlin on Android
