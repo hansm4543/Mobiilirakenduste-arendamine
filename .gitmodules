@@ -1,6 +1,6 @@
 [submodule "Harjutus3/android"]
 	path = Harjutus3/android
 	url = https://github.com/Uptaker/android.git
-[submodule "Harjutus4/Harjutus4/accelerator"]
-	path = Harjutus4/Harjutus4/accelerator
+[submodule "Harjutus4/accelerator"]
+	path = Harjutus4/accelerator
 	url = https://github.com/Uptaker/android.git
