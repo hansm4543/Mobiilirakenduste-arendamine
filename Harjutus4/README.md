@@ -19,11 +19,11 @@ Lisasime rakendusele ka kaamera funktsionaalsuse, mis laseb teha pilte, kuid nei
 ### Pildid kaamerast
 <p align="center">
 
-<img src="https://user-images.githubusercontent.com/70939499/159177559-30f825ce-449c-4ce8-93cb-b681bf671036.png" width=50% height=50%>
-
-<img src="https://user-images.githubusercontent.com/70939499/159177563-a636870c-c695-4f02-84b0-fa55b9587ba9.png" width=50% height=50%>
-
-<img src="https://user-images.githubusercontent.com/70939499/159177568-2cd9e06e-badf-4d7b-98b0-f769dcec2cc9.png" width=50% height=50%>
+<img src="https://user-images.githubusercontent.com/70939499/159177559-30f825ce-449c-4ce8-93cb-b681bf671036.png" width=40% height=40%>
+<br>
+<img src="https://user-images.githubusercontent.com/70939499/159177563-a636870c-c695-4f02-84b0-fa55b9587ba9.png" width=40% height=40%>
+<br>
+<img src="https://user-images.githubusercontent.com/70939499/159177568-2cd9e06e-badf-4d7b-98b0-f769dcec2cc9.png" width=40% height=40%>
   
  </p>
 
