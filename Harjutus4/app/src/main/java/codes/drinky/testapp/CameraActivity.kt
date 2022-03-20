@@ -6,12 +6,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.provider.MediaStore
 import codes.drinky.testapp.databinding.ActivityMainBinding
-
+//pole eraldi äpp, kasutab sisseehitatud camera api-d
 class CameraActivity : AppCompatActivity() {
 
     val REQUEST_IMAGE_CAPTURE = 1
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_camera)
         binding = ActivityMainBinding.inflate(layoutInflater)
