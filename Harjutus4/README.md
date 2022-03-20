@@ -14,7 +14,7 @@ Info liikumine activitite vahel töötab kasutades `putExtra("key", value)` funk
 Veidi sarnane JS komponentide propsidega.
 
 ### Mis oli raske
-- Kaamera korralikult tööle saamine
+- Kaamera API-le rakendusega tööle saamine
 
 ### Mis oli kerge
 - Akselomeetri lisamine?
