@@ -6,15 +6,16 @@ Harjutusel osalesid
 - Hans-Märten Liiu
 - Anastasija Selevjorstova
 - Jan-Erik Läänesaar
-- 
-?Insert tammeoja storyxd?
-Lisasime rakendusele ka kaamera funktsionaalsuse, mis laseb teha pilte, kuid neid ära ei salvesta.
+
+Lisasime rakendusele akseleraatori ning kaamera funktsionaalsuse, mis laseb teha pilte, kuid neid ära ei salvesta.
 
 ### Mis oli raske
 - Kaamera API-le rakenduses ligi pääsemine ning mingil põhjusel tuleb kaamera rakendus kaks korda avada, enne kui ta käivitub.
+- Tiimiliikmetel esines raskusi rakenduse käivitamisel
 
 ### Mis oli kerge
 - Kuna kaamera API-le on paljud asjad juba sisse ehitatud, oli selle lisamine rakendusse koos nuppude paigutamisega kõige lihtsam.
+- Üllatavalt lihtne oli manipuleerida ruudu akkseleraatori komponendist (meenutab CSSi, )
 
 ### Pildid kaamerast
 <p align="center">
