@@ -10,7 +10,7 @@ import codes.drinky.testapp.databinding.ActivityMainBinding
 //kutsume välja androidi sisseehitatud camera api
 class CameraActivity : AppCompatActivity() {
 
-    val REQUEST_IMAGE_CAPTURE = 1
+    private val REQUEST_IMAGE_CAPTURE = 1
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
 
