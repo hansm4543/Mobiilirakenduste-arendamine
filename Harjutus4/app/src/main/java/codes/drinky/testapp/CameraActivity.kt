@@ -18,9 +18,7 @@ class CameraActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        binding.openCamera.setOnClickListener {
-            dispatchTakePictureIntent()
-        }
+        dispatchTakePictureIntent()
 
     }
     private fun dispatchTakePictureIntent() {
