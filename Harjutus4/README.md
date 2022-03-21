@@ -14,7 +14,7 @@ Lisasime rakendusele akselleraatori ning kaamera funktsionaalsuse, mis laseb teh
 - Tiimiliikmetel esines raskusi rakenduse käivitamisel
 
 ### Mis oli kerge
-- Kuna kaamera API-le on paljud asjad juba sisse ehitatud, oli selle lisamine rakendusse koos nuppude paigutamisega kõige lihtsam.
+- Kuna kaamera API-le on paljud asjad juba sisse ehitatud, siis selle tööle saamisel oli kõik ülejäänud juba automaatselt olemas.
 - Üllatavalt lihtne oli manipuleerida ruutu akselleraatori komponendist (meenutab CSSiga toimimist)
 
 ### Pildid kaamerast
