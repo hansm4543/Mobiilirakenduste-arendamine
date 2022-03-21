@@ -10,7 +10,7 @@ Harjutusel osalesid
 Lisasime rakendusele akselleraatori ning kaamera funktsionaalsuse, mis laseb teha pilte, kuid neid ära ei salvesta.
 
 ### Mis oli raske
-- Kaamera API-le rakenduses ligi pääsemine ning mingil põhjusel tuleb kaamera rakendus kaks korda avada, enne kui ta käivitub.
+- Kaamera API-le rakenduses ligi pääsemine.
 - Tiimiliikmetel esines raskusi rakenduse käivitamisel
 
 ### Mis oli kerge
