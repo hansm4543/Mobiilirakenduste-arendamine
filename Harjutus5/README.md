@@ -17,3 +17,5 @@ Alguses proovisime ise otsast peale rakendust luua, kuid tuli välja, et see plu
 - Template muutmine
 
 
+Template mida muutsime https://github.com/SceneView/sceneform-android
+
