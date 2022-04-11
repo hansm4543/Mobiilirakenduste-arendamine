@@ -15,6 +15,10 @@ Ta sisaldab:
 - Pildi copy/paste
 - Ajaloo kustutamine
 
+Alammoodulis `mobiilidataStorage` asub rakendus txt faili salvestamiseks
+
+Alammoodulis `settingudmobiilis` asub rakendus kus kasutatakse Shared Preference
+
 ### Mis oli raske
 - JSON serialisatsioon (ja veel nt Gson vs Mochi vs Jackson vs kotlinx.serialization dilemma)
 - Piltide majandamine (ja töötlemine - nt URI konverteerimine Bitmapi)
