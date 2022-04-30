@@ -14,7 +14,7 @@ class ImageConversion(private val context: Context) {
     fun getBase64Image(image: Bitmap, complete: (String) -> Unit) {
         GlobalScope.launch {
             val outputStream = ByteArrayOutputStream()
-            image.compress(Bitmap.CompressFormat.PNG, 100, outputStream)
+            image.compress(Bitmap.CompressFormat.JPEG, 75, outputStream)
             val b = outputStream.toByteArray()
             complete(Base64.getEncoder().encodeToString(b))
         }
