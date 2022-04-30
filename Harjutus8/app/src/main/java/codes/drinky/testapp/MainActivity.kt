@@ -2,6 +2,7 @@ package codes.drinky.testapp
 
 import android.content.ClipData
 import android.content.ClipboardManager
+import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.net.Uri
@@ -30,6 +31,9 @@ import kotlinx.coroutines.withContext
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import org.json.JSONException
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
 import java.io.*
 
 
@@ -64,33 +68,55 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val loadImageFromCamera = registerForActivityResult(ActivityResultContracts.TakePicture()) { isSuccess ->
-        if (isSuccess) {
+        if (isSuccess && checkForInternet(this)) {
             uploadImageToImgur(imageConversion.uriToBitmap(latestTmpUri!!))
             Toast.makeText(this, "Uploading...", Toast.LENGTH_SHORT).show()
         } else {
-            Toast.makeText(this, "Did not upload", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Did not upload, check your internet connection.", Toast.LENGTH_SHORT).show()
         }
     }
 
     private val loadImageFromGallery = registerForActivityResult(ActivityResultContracts.GetContent()) {
-        if (it != null) {
+        if (it != null &&checkForInternet(this)) {
             uploadImageToImgur(imageConversion.uriToBitmap(it))
             Toast.makeText(this, "Uploading...", Toast.LENGTH_SHORT).show()
         } else {
-            Toast.makeText(this, "Did not upload", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Did not upload, check your internet connection.", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun checkForInternet(context: Context): Boolean {
+
+        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+
+            val network = connectivityManager.activeNetwork ?: return false
+            val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false
+
+            return when {
+                activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
+                activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
+                else -> false
+            }
+        } else {
+            @Suppress("DEPRECATION") val networkInfo =
+                connectivityManager.activeNetworkInfo ?: return false
+            @Suppress("DEPRECATION")
+            return networkInfo.isConnected
         }
     }
 
     private fun uploadImageToImgur(image: Bitmap) {
         var shareLink: String
-        imageConversion.getBase64Image(image, complete = { base64Image ->
-            GlobalScope.launch(Dispatchers.Default) {
-                val jsonObject = ImgurClient().upload(base64Image)
-                shareLink = jsonObject.getJSONObject("data").getString("link")
-                pushToHistoryAfterUpload(shareLink)
+            imageConversion.getBase64Image(image, complete = { base64Image ->
+                GlobalScope.launch(Dispatchers.Default) {
+                    val jsonObject = ImgurClient().upload(base64Image)
+                    shareLink = jsonObject.getJSONObject("data").getString("link")
+                    pushToHistoryAfterUpload(shareLink)
 
-            }
-        })
+                }
+            })
     }
 
     private suspend fun pushToHistoryAfterUpload(url: String) {
