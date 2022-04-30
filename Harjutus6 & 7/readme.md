@@ -1,4 +1,4 @@
-# Harjutus 6
+# Harjutus 6 & 7
 
 Harjutusel osalesid
 - Markus Veem 
