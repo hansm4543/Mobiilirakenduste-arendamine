@@ -4,6 +4,10 @@ plugins {
     id 'org.jetbrains.kotlin.plugin.serialization' version '1.6.10'
 }
 
+task wrapper(type: Wrapper){
+    gradleVersion = '7.2'
+}
+
 def apikeyPropertiesFile = rootProject.file("application.properties")
 def apikeyProperties = new Properties()
 apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
