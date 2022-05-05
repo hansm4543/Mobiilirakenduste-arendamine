@@ -51,24 +51,27 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-
+        //defineerime erinevad vaated
         setContentView(binding.root)
         emptyTextView = findViewById(R.id.noUploads)
         uploadsView = findViewById(R.id.uploadList)
 
+        //Loeme rakendusse sisse k6ik kasutaja varasemalt yles laetud pildid
         uploads = fileManager.getUploads()
         parseJson()
-
+        //kaamera nupu defineerimine
         findViewById<Button>(R.id.openCamera).setOnClickListener {
             takeImage() }
-
+        //Galleriist pildi laadimise nupu defineerimine
         findViewById<Button>(R.id.openGallery).setOnClickListener {
             loadImageFromGallery.launch("image/*") }
 
     }
 
     private val loadImageFromCamera = registerForActivityResult(ActivityResultContracts.TakePicture()) { isSuccess ->
+        //kontrollime kas kasutajal on interneti ühendus, et oleks võimalik pilt üles laadida või mitte
         if (isSuccess && checkForInternet(this)) {
+            //laeme pildi ylesse
             uploadImageToImgur(imageConversion.uriToBitmap(latestTmpUri!!))
             Toast.makeText(this, "Uploading...", Toast.LENGTH_SHORT).show()
         } else {
@@ -77,16 +80,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val loadImageFromGallery = registerForActivityResult(ActivityResultContracts.GetContent()) {
+        //kontrollime kas pilt on valitud ning kas on olemas internetiyhendus et pilti yles laadida
         if (it != null &&checkForInternet(this)) {
+            //laeme pildi ylesse
             uploadImageToImgur(imageConversion.uriToBitmap(it))
             Toast.makeText(this, "Uploading...", Toast.LENGTH_SHORT).show()
         } else {
-            Toast.makeText(this, "Did not upload, check your internet connection.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Did not upload, either you forgot to select a file or you have no internet connection.", Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun checkForInternet(context: Context): Boolean {
-
+        //interneti yhenduse kontrollimine
         val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -108,11 +113,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun uploadImageToImgur(image: Bitmap) {
+        //pildi konverteerimine ja yleslaadimine Imigurisse
         var shareLink: String
             imageConversion.getBase64Image(image, complete = { base64Image ->
                 GlobalScope.launch(Dispatchers.Default) {
                     val jsonObject = ImgurClient().upload(base64Image)
                     shareLink = jsonObject.getJSONObject("data").getString("link")
+                    //saadame pildi m2lusse lisamise funktsioonile
                     pushToHistoryAfterUpload(shareLink)
 
                 }
@@ -120,6 +127,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private suspend fun pushToHistoryAfterUpload(url: String) {
+        //lisame pildi kasutaja yleslaetud piltide m2lusse
         withContext(Dispatchers.Main) {
             val capturedUpload = Upload(System.currentTimeMillis(), url)
             uploads.uploads.add(0, capturedUpload)
@@ -131,6 +139,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun takeImage() {
+        //loome lyhiajalise informatsiooni pildi jaoks
         lifecycleScope.launchWhenStarted {
             getTmpFileUri().let { uri ->
                 latestTmpUri = uri
@@ -140,6 +149,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getTmpFileUri(): Uri {
+        //loome faili ning kustutame temporary faili peale kaamera vaatest v2ljumist.
         val tmpFile = File.createTempFile("tmp_image_file", ".jpg", cacheDir).apply {
             createNewFile()
             deleteOnExit()
@@ -148,6 +158,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun copyToClipboard(text: String) {
+        //kopeerime pildi informatsiooni clipboardile
         val clipboardManager = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
         val clipData = ClipData.newPlainText("text", text)
         clipboardManager.setPrimaryClip(clipData)
@@ -155,6 +166,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun doUploadsExist() {
+        //m22rame vaate, mida kasutajale kuvatakse
         if (uploads.uploads.isEmpty()) {
             emptyTextView.visibility = View.VISIBLE
         } else {
@@ -163,6 +175,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun parseJson() {
+        //kontrollime kas on varasemalt pilte yles laetud
         doUploadsExist()
         try {
             uploadsView.layoutManager = LinearLayoutManager(this)
@@ -174,6 +187,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun remove(url: String) {
+        //eemaldame pildi
         this.uploads.uploads.removeIf { it.url == url }
         parseJson()
     }

@@ -12,6 +12,7 @@ import java.util.*
 class ImageConversion(private val context: Context) {
 
     fun getBase64Image(image: Bitmap, complete: (String) -> Unit) {
+        //pildi konverteerimine
         GlobalScope.launch {
             val outputStream = ByteArrayOutputStream()
             image.compress(Bitmap.CompressFormat.JPEG, 75, outputStream)
