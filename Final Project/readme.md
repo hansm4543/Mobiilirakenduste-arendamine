@@ -1,4 +1,4 @@
-# Projekti Nimi: µTorrent
+# Projekti Nimi: µShare
 ### Autorid: 
 Hans-Märten Liiu, Markus Veem, Markus Tammeoja, Anastasija Selevjorstova ja Jan-Erik Läänesaar
 
