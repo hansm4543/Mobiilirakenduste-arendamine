@@ -3,7 +3,6 @@ package codes.drinky.testapp
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
-import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.net.Uri
@@ -35,7 +34,6 @@ import org.json.JSONException
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.io.*
 
 
@@ -45,7 +43,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var uploads: Uploads
     private lateinit var emptyTextView: TextView
     private lateinit var uploadsView: RecyclerView
-
 
     private val fileManager = UploadsFileManager(this)
     private val imageConversion = ImageConversion(this)
@@ -67,7 +64,6 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.openGallery).setOnClickListener {
             loadImageFromGallery.launch("image/*") }
-
 
     }
 
@@ -176,8 +172,6 @@ class MainActivity : AppCompatActivity() {
             e.printStackTrace()
         }
     }
-
-
 
     fun remove(url: String) {
         this.uploads.uploads.removeIf { it.url == url }

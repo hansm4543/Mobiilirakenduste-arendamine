@@ -1,6 +1,5 @@
 # Harjutus 8
 
-This repository holds various tests & prototypes with Kotlin on Android
 Harjutusel osalesid
 - Markus Veem 
 - Markus Tammeoja
