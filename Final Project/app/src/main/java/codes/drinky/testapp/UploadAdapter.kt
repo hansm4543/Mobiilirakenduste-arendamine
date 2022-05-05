@@ -18,6 +18,8 @@ import kotlinx.coroutines.*
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
+import androidx.core.content.ContextCompat.getExternalFilesDirs
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class UploadAdapter(private val context: Context, private val items: ArrayList<Upload>) :
     RecyclerView.Adapter<UploadAdapter.ViewHolder>() {
@@ -58,6 +60,7 @@ class UploadAdapter(private val context: Context, private val items: ArrayList<U
         val url: TextView = view.findViewById(R.id.tv_url)
         val image: ImageView = view.findViewById(R.id.imageView)
         private val copy: ImageView = view.findViewById(R.id.copy)
+        private val share: ImageView = view.findViewById(R.id.share)
 
         init {
             view.setOnLongClickListener {
@@ -76,6 +79,27 @@ class UploadAdapter(private val context: Context, private val items: ArrayList<U
                 val position: Int = adapterPosition
                 defaultBrowser.data = Uri.parse(items[position].url)
                 (context as MainActivity).startActivity(defaultBrowser)
+            }
+            //val shareIntent: Intent = Intent().apply {
+            //    action = Intent.ACTION_SEND
+            //    putExtra(Intent.EXTRA_TEXT, "This is my text to send.")
+            //    type = "text/plain" --sellega tootab
+            //}
+
+
+
+            share.setOnClickListener {
+                val position: Int = adapterPosition
+                val shareIntent: Intent = Intent().apply {
+                    action = Intent.ACTION_SEND
+                    putExtra(Intent.EXTRA_STREAM, Uri.parse(items[position].url))
+                    type = "image/jpeg"
+
+                }
+                shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                shareIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+                shareIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                (context as MainActivity).startActivity(Intent.createChooser(shareIntent, "SHARE WITH"))
             }
         }
     }
