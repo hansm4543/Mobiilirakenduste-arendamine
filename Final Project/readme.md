@@ -1,6 +1,6 @@
 # Projekti Nimi: µTorrent
 ### Autorid: 
-Hans-Märten Liiu,Markus Veem, Markus Tammeoja, Anastasija Selevjorstova ja Jan-Erik Läänesaar
+Hans-Märten Liiu, Markus Veem, Markus Tammeoja, Anastasija Selevjorstova ja Jan-Erik Läänesaar
 
 </br>
 
