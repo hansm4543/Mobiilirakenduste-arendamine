@@ -1,10 +1,10 @@
 # Project Name: µTorrent
 ### Authors: 
-## Hans-Märten Liiu
-## Markus Veem
-## Markus Tammeoja
-## Anastasija Selevjorstova
-## Jan-Erik Läänesaar
+Hans-Märten Liiu
+Markus Veem
+Markus Tammeoja
+Anastasija Selevjorstova
+Jan-Erik Läänesaar
 
 </br>
 
