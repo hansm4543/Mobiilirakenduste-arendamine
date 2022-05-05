@@ -113,7 +113,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun uploadImageToImgur(image: Bitmap) {
-        //pildi konverteerimine ja yleslaadimine Imigurisse
+        //pildi konverteerimine ja yleslaadimine Imgurisse
         var shareLink: String
             imageConversion.getBase64Image(image, complete = { base64Image ->
                 GlobalScope.launch(Dispatchers.Default) {

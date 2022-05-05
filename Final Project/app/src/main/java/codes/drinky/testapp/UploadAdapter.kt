@@ -25,6 +25,7 @@ class UploadAdapter(private val context: Context, private val items: ArrayList<U
     private val defaultBrowser: Intent = Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_BROWSER)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        //tekitame ilusa graafilisise listi piltidest ja nende informatsioonist
         return ViewHolder(
             LayoutInflater.from(context).inflate(
                 R.layout.item_upload_layout, parent, false
@@ -47,10 +48,12 @@ class UploadAdapter(private val context: Context, private val items: ArrayList<U
     }
 
     override fun getItemCount(): Int {
+        //p2rime mitu pilti on yles laetud
         return items.size
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        //defineerime nupud ja informatsiooni yhele pildi objektile
         val date: TextView = view.findViewById(R.id.tv_upload_date)
         val url: TextView = view.findViewById(R.id.tv_url)
         val image: ImageView = view.findViewById(R.id.imageView)

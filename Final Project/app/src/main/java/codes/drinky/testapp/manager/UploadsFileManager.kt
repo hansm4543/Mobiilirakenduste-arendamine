@@ -23,6 +23,7 @@ class UploadsFileManager(private val context: Context) {
     }
 
     fun writeToFile(content: String) {
+        //kirjutame uue pildi informatsiooni yleslaetud failide nimekirja
         val path = context.filesDir
         val file = File(path, fileName)
         file.createNewFile()
@@ -32,6 +33,7 @@ class UploadsFileManager(private val context: Context) {
     }
 
     fun getUploads(): Uploads {
+        //laeme yles laetud failid
         val uploadsJson = readFile()
         return if (uploadsJson != null) {
             Json.decodeFromString(uploadsJson)

@@ -18,6 +18,7 @@ class ImgurClient {
     private val UPLOAD_URL = "https://api.imgur.com/3/image"
 
     suspend fun upload(base64Image: String): JSONObject {
+        //laeme pildi imgurisse
         val url = URL(UPLOAD_URL)
         val boundary = "Boundary-${System.currentTimeMillis()}"
 
@@ -51,6 +52,7 @@ class ImgurClient {
     }
 
     fun fetchImage(imgUrl: String): Bitmap? {
+        //loeme imgurist pilte
         return try {
             val url = URL(imgUrl)
             BitmapFactory.decodeStream(url.openConnection().getInputStream())
