@@ -1,6 +1,5 @@
 # Mobiilirakenduste-arendamine
 
-# Project Name: 
 ### Autorid:
 <ul>
   <li>Hans-Märten Liiu</li>
