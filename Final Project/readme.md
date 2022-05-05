@@ -55,10 +55,10 @@ Make a application in which you can take pictures and then upload them, so they 
 
 
 ## Light Mode
-![Source code](Light.png)
+![Source code](Screenshots/Light.png)
 ## Dark Mode
-![Source code](Dark.png)
+![Source code](Screenshots/Dark.png)
 ## Vali pilt telefonist
-![Source code](SelectFromPhone.png)
+![Source code](Screenshots/SelectFromPhone.png)
 ## Pildistamine
-![Source code](Capture.png)
+![Source code](Screenshots/Capture.png)
