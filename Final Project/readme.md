@@ -1,14 +1,13 @@
-# Project Name: µTorrent
-### Authors: 
+# Projekti Nimi: µTorrent
+### Autorid: 
 Hans-Märten Liiu,Markus Veem, Markus Tammeoja, Anastasija Selevjorstova ja Jan-Erik Läänesaar
 
 </br>
 
-Main Idea:
+Peamine Idee:
 -------------
 
-Make a application in which you can take pictures and then upload them, so they could be shared to your friends.
-
+Luua rakendus, mille abil saad teha pilte ning seejärel need otse üles laadida, et neid hiljem on sõpradele jagada.
 
 <h2>Paigaldamisjuhend</h2>
 <ul>
