@@ -49,6 +49,8 @@ Luua rakendus, mille abil saad teha pilte ning seejärel need otse üles laadida
 </ul>
 
 
+## App logo
+![Source code](Screenshots/AppLogo.png)
 ## Light Mode
 ![Source code](Screenshots/Light.PNG)
 ## Dark Mode
