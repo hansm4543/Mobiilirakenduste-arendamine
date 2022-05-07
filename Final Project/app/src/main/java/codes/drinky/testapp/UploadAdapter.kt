@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,11 +21,13 @@ import java.util.*
 import kotlin.collections.ArrayList
 import androidx.core.content.ContextCompat.getExternalFilesDirs
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import java.io.ByteArrayOutputStream
 
 class UploadAdapter(private val context: Context, private val items: ArrayList<Upload>) :
     RecyclerView.Adapter<UploadAdapter.ViewHolder>() {
 
-    private val defaultBrowser: Intent = Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_BROWSER)
+    private val defaultBrowser: Intent =
+        Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_BROWSER)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         //tekitame ilusa graafilisise listi piltidest ja nende informatsioonist
@@ -36,7 +39,6 @@ class UploadAdapter(private val context: Context, private val items: ArrayList<U
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
         val item = items[position]
         holder.date.text = epochToDate(item.uploadDate)
         holder.url.text = item.url
@@ -47,6 +49,11 @@ class UploadAdapter(private val context: Context, private val items: ArrayList<U
                 holder.image.setImageBitmap(image)
             }
         }
+    }
+
+    private fun epochToDate(epoch: Long): String {
+        val sdf = SimpleDateFormat("dd/MM/yyyy 'at' HH:mm")
+        return sdf.format(Date(epoch))
     }
 
     override fun getItemCount(): Int {
@@ -80,32 +87,34 @@ class UploadAdapter(private val context: Context, private val items: ArrayList<U
                 defaultBrowser.data = Uri.parse(items[position].url)
                 (context as MainActivity).startActivity(defaultBrowser)
             }
-            //val shareIntent: Intent = Intent().apply {
-            //    action = Intent.ACTION_SEND
-            //    putExtra(Intent.EXTRA_TEXT, "This is my text to send.")
-            //    type = "text/plain" --sellega tootab
-            //}
-
-
 
             share.setOnClickListener {
                 val position: Int = adapterPosition
-                val shareIntent: Intent = Intent().apply {
-                    action = Intent.ACTION_SEND
-                    putExtra(Intent.EXTRA_STREAM, Uri.parse(items[position].url))
-                    type = "image/jpeg"
-
+                CoroutineScope(Dispatchers.IO).launch {
+                    val image: Bitmap? = ImgurClient().fetchImage(items[position].url)
+                    withContext(Dispatchers.Main) {
+                        if (image == null) {
+                            return@withContext
+                        }
+                        val shareIntent = Intent(Intent.ACTION_SEND)
+                        shareIntent.type = "image/jpeg"
+                        val bStream = ByteArrayOutputStream()
+                        image.compress(Bitmap.CompressFormat.JPEG, 100, bStream)
+                        val path: String = MediaStore.Images.Media.insertImage(
+                            context.contentResolver,
+                            image, "Title", null
+                        )
+                        val imageUri = Uri.parse(path)
+                        shareIntent.putExtra(Intent.EXTRA_STREAM, imageUri)
+                        (context as MainActivity).startActivity(
+                            Intent.createChooser(
+                                shareIntent,
+                                "SHARE WITH"
+                            )
+                        )
+                    }
                 }
-                shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-                shareIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
-                shareIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                (context as MainActivity).startActivity(Intent.createChooser(shareIntent, "SHARE WITH"))
             }
         }
-    }
-
-    private fun epochToDate(epoch: Long): String {
-        val sdf = SimpleDateFormat("dd/MM/yyyy 'at' HH:mm")
-        return sdf.format(Date(epoch))
     }
 }
