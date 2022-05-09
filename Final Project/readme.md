@@ -25,7 +25,6 @@ Luua rakendus, mille abil saad teha pilte ning seejärel need otse üles laadida
   <li>Pixel 4 koos Play Storega + Android 12(Google Play)</li>
   <li>Imigur Client</li>
   <li>Image Conversion</li>
-  <li>Image Conversion</li>
   
 </ul>
 
